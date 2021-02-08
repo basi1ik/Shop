@@ -69,3 +69,24 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.items_product {
+    border: 1px solid #DEE2E6;
+    width: 320px;
+    height: 320px;
+    float: right;
+    background-color: azure;
+    margin: 5px;
+}
+
+.product_image {
+    width: 320px;
+    height: 280px;
+    background-color: blanchedalmond;
+}
+
+.add_item {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;    
+}

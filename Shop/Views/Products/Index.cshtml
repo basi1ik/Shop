@@ -4,22 +4,23 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Католог</h1>
+<h1>Каталог</h1>
 
-<table class="table">
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Balance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td> 
-        </tr>
-}
-    </tbody>
-</table>
+<div>
+    @foreach (var item in Model)
+    {
+    <div class="items_product">
+        <div class="product_image"></div>
+
+        @item.Name
+        @item.Price
+
+        <button id="addToCart"><a href="@Url.Action("AddToCart","Cart", new { id = item.Id })">купить</a></button>      
+              
+        @*<button class="add_item"  href="@Url.Action("AddToCart","Cart", item.Id)">+</button>*@
+    </div>
+
+    }
+
+</div>
+

@@ -1,15 +1,14 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Shop.Data;
+using Shop.Models;
+using System;
+using System.Linq;
 
 namespace Shop
 {
@@ -28,7 +27,16 @@ namespace Shop
             services.AddControllersWithViews();
 
             services.AddDbContext<ShopContext>(options =>
-                   options.UseNpgsql(Configuration.GetConnectionString("ShopContext")));                
+                   options.UseNpgsql(Configuration.GetConnectionString("ShopContext")));
+
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => 
+            {
+                options.Cookie.Name = ".BasilikApp.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(3600);
+                options.Cookie.IsEssential = true;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +58,8 @@ namespace Shop
             app.UseRouting();
 
             app.UseAuthorization();
+           
+            app.UseSession();    
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +35,9 @@ namespace Shop
                 }
             }
 
-            host.Run();
+            host.Run();        
+           
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
