@@ -9,17 +9,19 @@
 <div>
     @foreach (var item in Model)
     {
-    <div class="items_product">
-        <div class="product_image"></div>
+        <div class="items_product">
+            <div class="product_image"></div>
+            <h6>
+                <strong>@item.Name</strong>
+                <span>@item.Price.ToString("# руб")</span>
+            </h6>
 
-        @item.Name
-        @item.Price
+            <form action="/Cart/AddToCart/" method="post">
+                <input type="hidden" name="id" value=@item.Id>
+                <input type="submit" id="add_to_cart" value="Добавить в корзину @item.Id" />
+            </form>     
 
-        <button id="addToCart"><a href="@Url.Action("AddToCart","Cart", new { id = item.Id })">купить</a></button>      
-              
-        @*<button class="add_item"  href="@Url.Action("AddToCart","Cart", item.Id)">+</button>*@
-    </div>
-
+        </div>
     }
 
 </div>

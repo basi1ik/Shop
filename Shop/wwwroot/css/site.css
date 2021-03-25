@@ -74,7 +74,7 @@ body {
     border: 1px solid #DEE2E6;
     width: 320px;
     height: 320px;
-    float: right;
+    float: left;
     background-color: azure;
     margin: 5px;
 }

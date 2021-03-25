@@ -22,35 +22,27 @@
             {
                 <tr>
                     <td>@item.Product.Name</td>
-                    <td>
-                        <button id="addToCart">
-                            <a href="">-</a>
-                        </button>
-                        <input type="text" name="name" value="@item.Quantity" />
-                        <button id="addToCart">
-                            <a href="@Url.Action("AddToCart","Cart", new { id = item.Product.Id })">+</a>
-                        </button>
+                    <td>                 
+                        <input type="text" name="name" value="@item.Quantity" />                       
                     </td>
                     <td>@item.Product.Price</td>
                     <td>@(item.Product.Price * item.Quantity)</td>
                     <td><a asp-action="Remove" asp-route-id="@item.Product.Id">Remove</a></td>
                 </tr>
             }
-
             <tr>
                 <td align="right" colspan="4">Sum</td>
                 <td>@ViewBag.Total</td>
             </tr>
         </tbody>
     </table>
+
+    <a href="@ViewBag.Payment">Оплатить</a>
 }
 else
 {
     <p> Ваша корзина пуста </p>
 }
-
-
-
 
 <br />
 <a asp-controller="Products" asp-action="Index">Continue Shopping</a>

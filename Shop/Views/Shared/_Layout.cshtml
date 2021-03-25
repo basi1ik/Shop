@@ -6,7 +6,25 @@
     <title>@ViewData["Title"] - Shop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script scr="/js/site.js"></script>
+    <script scr="~/js/site.js"></script>
+    <script>
+        $(document).ready(function () {
+            GetCountItems();
+
+            $("#add_to_cart").click(function () {
+                GetCountItems();
+            });
+
+            function GetCountItems() {
+
+                $.get("@Url.Action("GetCount", "Cart")", function (data) {
+                    console.log("Data: " + data + "\nStatus: " + status);
+                    $('#result').text(data);
+                });
+            }
+        });
+
+    </script>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -27,13 +45,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Catalog">Catalog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Catalog</a>
                         </li>
                     </ul>
-                </div>       
+                </div>
                 <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Корзина</a>
                 <span id="result"></span>
             </div>

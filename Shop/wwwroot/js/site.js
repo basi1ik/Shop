@@ -3,15 +3,5 @@
 
 // Write your JavaScript code.
 
-$(document).ready(function () {
 
-    $('#addToCart').click(function () {
-        $.ajax({
-            type: 'GET',
-            url: '/cart/getcount',
-            success: function (result) {
-                $('#result').html(result);
-            }
-        });
-    });
-});
+//$.get("@Url.Action("GetCount", "Cart")", function (data) {
