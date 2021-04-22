@@ -10,8 +10,8 @@ namespace Shop.Models
 {
     public static class QiwiClient
     {
-        private static string _secertToken = "eyJ2ZXJzaW9uIjoiUDJQIiwiZGF0YSI6eyJwYXlpbl9tZXJjaGFudF9zaXRlX3VpZCI6IjNxeGVxcS0wMCIsInVzZXJfaWQiOiI3OTUxNjIwNjA2OCIsInNlY3JldCI6Ijk0ZGVjYzA4Mzk2YjEyZDQ5ZGIyMTE1ODAzOGU0Y2U2YTQ2YzIxZjVmNDBhOGZhYTFhZjEyMGVmMTFmNGY4NjIifX0=";
-        private static string _publicKey = "48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iP4xpmMTfqsECTjqv45mDUoqbfK9ZDiCJDQf4Ua88dJTHt152zncDCWe3Nd64sAmXTQj1xwqD6avZebMrd2GPdRTS3AjJ1ZzDs4p9Msg3gX";
+        private static string _secertToken = "";
+        private static string _publicKey = "";
 
         public static Uri Run(decimal total ) {
 
